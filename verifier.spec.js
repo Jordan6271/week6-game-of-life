@@ -3,9 +3,18 @@ import {golTest} from './verifier';
 //Any live cell with fewer than two live neighbours dies as if by under population.
 describe("queryOne", () => {
     it("should die with fewer than 2 live neighbours", () => {
-        const result = golTest(2);
-
-        expect(result).toBe(true);
+        let before = [
+            [0, 1, 0],
+            [0, 1, 1],
+            [1, 0, 0],
+        ];
+        let after =  [
+            [0, 1, 0],
+            [0, 1, 1],
+            [0, 0, 0],
+        ];
+        const result = golTest(before);
+        expect(result).toStrictEqual(after);
     })
 })
 
