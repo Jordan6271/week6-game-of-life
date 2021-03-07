@@ -2,10 +2,10 @@ function golTest(input) {
     const resolution = 3;
     function getNeighbourCount (x, y) {
         let count = 0;
-        for (let yy = -1; yy < 2; yy++) {
-            for (let xx = -1; xx < 2; xx++) {
-                if (xx === 0 && yy === 0 || x + xx < 0 || x + xx > resolution - 1 || y + yy < 0 || y + yy > resolution - 1) continue;
-                if (input[x + xx][y + yy] === 1) count ++;
+        for (let j = -1; j < 2; j++) {
+            for (let i = -1; i < 2; i++) {
+                if (i === 0 && j === 0 || x + i < 0 || x + i > resolution - 1 || y + j < 0 || y + j > resolution - 1) continue;
+                if (input[x + i][y + j] === 1) count ++;
             }
         }
         return count;
