@@ -13,23 +13,35 @@ function generateGrid(root) {
 
 function neighbourCount(cells, index) {
     const width = Math.sqrt(cells.length);
-    const result = 
-    (cells[index - 1] || 0) +
-    (cells[index + 1] || 0) + 
-    (cells[index - width] || 0) +
-    (cells[index - width -1] || 0) + 
-    (cells[index + width] || 0) +
-    (cells[index + width +1] || 0);
+    const result =
+        (cells[index - 1] || 0) +
+        (cells[index + 1] || 0) +
+        (cells[index - width] || 0) +
+        (cells[index - width - 1] || 0) +
+        (cells[index - width + 1] || 0) +
+        (cells[index + width] || 0) +
+        (cells[index + width + 1] || 0) +
+        (cells[index + width - 1] || 0);
     return result;
-    
 }
-console.log(neighbourCount([1,1,1,0,0,0,0,0,0],4))
 
-function liveDie(cellState) {
-    return cellState.map(cell => isAlive(cell, 0));
+// function counting(cells,index) {
+//     const width = Math.sqrt(cells.length);
+//     for(i=0; i < cells.length; i++) {
+//         const result = 
+//         (cells[index + width + i] || 0) + (cells[index + width - i] || 0) + (cells[index - width + i] || 0) + (cells[index - width - i] || 0)
+//         return result
+//     }
+// } 
 
-}
-//console.log(liveDie([1,1,1]))
+//console.log(counting([1, 1, 1, 0, 0, 0, 0, 0, 0], 4))
+    //console.log(neighbourCount([1, 1, 1, 0, 0, 0, 0, 0, 0], 4))
+
+    function liveDie(cellState) {
+        return cellState.map(cell => isAlive(cell, 0));
+
+    }
+    //console.log(liveDie([1, 1, 1, 0]))
 
 // export { isAlive }
 // export { generateGrid }
